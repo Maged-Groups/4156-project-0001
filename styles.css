@@ -1,6 +1,5 @@
-/* CSS Styles */
-* {
-}
-.faq {
-  /*  */
+h1 {
+    color: fuchsia;
+    background-color: lightcyan;
+    border: 2px darkblue dotted;
 }

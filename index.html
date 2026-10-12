@@ -9,8 +9,49 @@
 </head>
 
 <body>
+    <style>
+        header {
+            background-color: lightgray;
+        }
 
-    <header style="background-color: lightblue; color: teal;">
+        /* Old school */
+        header a {
+            color: black;
+        }
+
+        footer {
+            background-color: black;
+            color: yellow;
+
+            a {
+                color: red;
+            }
+
+        }
+
+        /* main section:first-of-type {
+            background-color: aquamarine;
+        } */
+
+        main {
+            section {
+                &:first-of-type {
+                    background-color: aquamarine;
+                }
+            }
+        }
+
+        .important {
+            border: solid;
+        }
+
+        #tell-us {
+            background-color: brown;
+        }
+    </style>
+
+
+    <header>
         <h1>BrightPath</h1>
 
         <p>Smart Marketing. Real Growth.</p>
@@ -31,7 +72,7 @@
         <section id="home">
             <h2>Grow Your Business with Smarter Marketing</h2>
 
-            <p>
+            <p class="important">
                 We help businesses attract more customers, build stronger
                 brands, and turn ideas into measurable results.
             </p>
@@ -46,8 +87,7 @@
             <a href="#services">Explore Our Services</a>
 
             <figure>
-                <img src="https://picsum.photos/300/300" alt="Marketing team working together on a business strategy"
-                    >
+                <img src="https://picsum.photos/300/300" alt="Marketing team working together on a business strategy">
                 <figcaption>
                     Helping businesses turn opportunities into growth.
                 </figcaption>
@@ -213,11 +253,11 @@
         <section id="contact">
             <h2>Contact Us</h2>
 
-            <p>
+            <p id="tell-us">
                 Tell us about your business and how we can help.
             </p>
 
-            <form action="#" method="post">
+            <form class="important" action="#" method="post">
                 <p>
                     <label for="name">Full Name</label>
                     <br>

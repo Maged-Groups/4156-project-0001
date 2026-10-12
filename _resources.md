@@ -18,3 +18,7 @@ https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
 
 https://docs.emmet.io/abbreviations/syntax/
 https://docs.emmet.io/cheat-sheet/
+
+
+## CSS Selectors
+https://www.w3schools.com/cssref/css_selectors.php
