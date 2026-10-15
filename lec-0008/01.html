@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        section {
+            border: solid 1px red;
+
+            p {
+                color: tomato;
+            }
+
+            .note {
+                background-color: lightcoral;
+            }
+
+        }
+
+        section.note {}
+
+        section .note {
+            font-size: 40px;
+        }
+
+        section>.note {}
+
+        section>p {
+            border: solid green;
+        }
+
+        div p~ul {}
+
+        .x.y {}
+
+        .x .y {}
+
+
+        .border-sm {
+            border: solid 1px;
+        }
+
+        .border-md {
+            border: solid 1px;
+        }
+
+        .border-lg {
+            border: solid 4px;
+        }
+
+        .border-xl {
+            border: solid 6px;
+        }
+
+        .danger-bg {
+            background-color: rgb(230, 150, 84);
+        }
+
+        .success-bg {
+            background-color: lightgreen;
+        }
+
+        .warning-bg {
+            background-color: goldenrod;
+        }
+
+        .info-bg {
+            background-color: lightseagreen;
+        }
+
+        section+article {
+            background-color: red;
+        }
+    </style>
+
+
+    <section>
+        Section text
+    </section>
+    <article>Article 1 next to section</article>
+    <article>Article 2 next to section</article>
+
+    <div class="x y">
+
+        <h3></h3>
+        <div class="info-bg border-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, assumenda?</div>
+        <div class="danger-bg border-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, assumenda?</div>
+        <div class="success-bg border-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, assumenda?
+        </div>
+
+        <section></section>
+
+        <p></p>
+
+        <div></div>
+
+        <ul> </ul>
+
+        <p></p>
+        <ul> </ul>
+    </div>
+
+
+
+
+    <section>
+        <p>Test</p>
+        <article class='note'>
+
+            <article>
+    </section>
+
+    <section class='note'>
+        <h2>Section title</h2>
+        <p>Test1</p>
+        <p>Test2</p>
+        <p>Test3</p>
+        <p>Test4</p>
+
+        <article class='note'>
+            <h3>Article Title</h3>
+            <p>The article content</p>
+            <p>The article content</p>
+            <p>The article content</p>
+            <p>The article content</p>
+        </article>
+
+        <div>
+            <p></p>
+        </div>
+
+    </section>
+
+    <section class='note'>
+        <p>Test</p>
+        <div>
+            <article class='note'>
+
+            </article>
+        </div>
+    </section>
+
+</body>
+
+</html>

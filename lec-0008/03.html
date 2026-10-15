@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables</title>
+</head>
+
+<body>
+    <style>
+        :root {
+            --main-color: #1d5a05;
+            --second-color: #eaeec4;
+            --dark-color: #113;
+            --light-color: #eef;
+            --danger-color: tomato;
+            --success-color: aquamarine;
+
+            --sm: 4px;
+            --md: 6px;
+            --lg: 10px;
+            --xl: 14px;
+            --xxl: 24px;
+        }
+
+        body {
+            margin: 0;
+            padding: var(--lg);
+        }
+
+        nav {
+            background-color: var(--second-color);
+
+            a {
+                color: var(--main-color);
+            }
+        }
+
+        header {
+            background-color: var(--main-color);
+            padding: var(--xxl);
+
+            color: var(--second-color);
+        }
+
+        .first {
+            border: solid var(--md) var(--main-color);
+            background-color: var(--success-color);
+            color: var(--danger-color);
+            padding: var(--lg);
+            border: 4px solid red;
+        }
+
+        .second {
+            border: solid var(--md) var(--success-color);
+            background-color: var(--main-color);
+            color: var(--second-color);
+            padding: var(--lg);
+        }
+    </style>
+
+    <nav>
+        <a href="">Lorem.</a>
+        <a href="">Sit.</a>
+        <a href="">Voluptas!</a>
+        <a href="">Molestias!</a>
+        <a href="">Ea!</a>
+    </nav>
+
+    <header>
+        <h1>Page Title</h1>
+    </header>
+
+    <div class="container">
+        <div class="first">
+            <h2>First Div</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod minus voluptate libero nobis optio. Fugiat
+                obcaecati sint, nisi laudantium ducimus eos assumenda ipsa est quas molestiae numquam illum similique
+                molestias!</p>
+        </div>
+
+        <div class="second">
+            <h2>Second Div</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod minus voluptate libero nobis optio. Fugiat
+                obcaecati sint, nisi laudantium ducimus eos assumenda ipsa est quas molestiae numquam illum similique
+                molestias!</p>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Sizing</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        div {
+            background-color: lightblue;
+            margin-bottom: 10px;
+            width: 200px;
+
+            &.a {
+                border: solid 10px;
+                padding: 10px;
+            }
+        }
+    </style>
+    <div class="a">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, quasi?</div>
+    <div class="b">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, quasi?</div>
+
+</body>
+
+</html>
