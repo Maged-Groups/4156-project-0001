@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Position</title>
+
+    <!-- fontawesome 7 -->
+    <script src="https://kit.fontawesome.com/e747016902.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -90,11 +93,43 @@
                 }
             }
         }
+
+        /* to-top */
+        .to-top{
+            display: block;
+            width: 60px;
+            height: 60px;
+
+            font-size: 36px;
+            text-align: center;
+
+            position: fixed;
+            bottom: var(--md);
+            right: var(--md);
+            
+            color: var(--dark-color);
+            background-color: var(--main-color);
+            opacity: 0.75;
+            border-radius: 20px 5px;
+            text-decoration: none;
+            
+            &:hover{
+                background-color: var(--light-color);
+                color: var(--main-color);
+                opacity: 1;
+                bottom: var(--sm);
+
+                span{
+                    position: relative;
+                    top: -10px;
+                }
+            }
+        }
     </style>
 
-    <div class="to-top">
-       <a href="">↑</a>
-    </div>
+    <a class="to-top" href="#">
+       <span><i class="fa-solid fa-angle-up"></i></span>
+    </a>
 
 
     <!-- Header -->
@@ -112,7 +147,7 @@
         <div class="drop-down">
             <button>MENU</button>
             <div class="menu">
-                <div><a href="">Home</a></div>
+                <div><a href=""><i class="fa-regular fa-house"></i> Home</a></div>
                 <div><a href="">About</a></div>
                 <div><a href="">Products</a></div>
                 <div><a href="">Services</a></div>
@@ -146,6 +181,221 @@
                 excepturi est quasi laboriosam neque natus, earum enim dolorem, obcaecati et expedita! Excepturi
                 quaerat, expedita maiores illum blanditiis enim! Et sit ipsum ea dolorem! Quidem in enim placeat eius
                 autem. Facere repudiandae rem aspernatur ut incidunt maxime soluta aliquam voluptatum amet?</p>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <!-- Definitions for gradients, shadows, and clips -->
+  <defs>
+    <!-- Background Card Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f5f9fc"/>
+    </linearGradient>
+
+    <!-- Sky Gradient -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e3f2fd"/>
+      <stop offset="60%" stop-color="#fff9c4"/>
+      <stop offset="100%" stop-color="#ffecb3"/>
+    </linearGradient>
+
+    <!-- Roof Gradient -->
+    <linearGradient id="roofGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b0bec5"/>
+      <stop offset="30%" stop-color="#90a4ae"/>
+      <stop offset="100%" stop-color="#546e7a"/>
+    </linearGradient>
+
+    <!-- House Wall Gradient -->
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#bbdefb"/>
+      <stop offset="100%" stop-color="#64b5f6"/>
+    </linearGradient>
+
+    <!-- User Avatar Badge Gradient -->
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e3f2fd"/>
+      <stop offset="100%" stop-color="#1e88e5"/>
+    </linearGradient>
+
+    <!-- Drop Shadow Filters -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="15" stdDeviation="25" flood-color="#90a4ae" flood-opacity="0.2"/>
+    </filter>
+    
+    <filter id="avatarShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#1565c0" flood-opacity="0.3"/>
+    </filter>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#fff59d" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Clip Path for the Inner Illustration Canvas -->
+    <clipPath id="canvasClip">
+      <rect x="150" y="200" width="500" height="420" rx="30" ry="30"/>
+    </clipPath>
+  </defs>
+
+  <!-- Global Base Background -->
+  <rect width="100%" height="100%" fill="#edf4f8"/>
+
+  <!-- Main Container Card -->
+  <rect x="120" y="140" width="560" height="550" rx="40" ry="40" fill="url(#cardGrad)" filter="url(#cardShadow)"/>
+
+  <!-- ========================================== -->
+  <!-- ILLUSTRATION CANVAS (Clips inner graphics) -->
+  <!-- ========================================== -->
+  <g clip-path="url(#canvasClip)">
+    <!-- Sky Background -->
+    <rect x="150" y="200" width="500" height="420" fill="url(#skyGrad)"/>
+
+    <!-- Sun / Morning Glow -->
+    <circle cx="240" cy="280" r="120" fill="#fffde7" opacity="0.4" filter="url(#glow)"/>
+    <circle cx="240" cy="280" r="70" fill="#ffffff" opacity="0.6"/>
+
+    <!-- Clouds -->
+    <path d="M520,290 q20,-20 40,0 q25,-15 45,10 q15,20 -10,25 l-75,0 z" fill="#ffffff" opacity="0.7"/>
+    <path d="M200,260 q15,-15 30,0 q20,-10 35,10 q10,15 -10,15 l-55,0 z" fill="#ffffff" opacity="0.8"/>
+
+    <!-- Distant Trees / Background Foliage -->
+    <!-- Left Trees -->
+    <circle cx="160" cy="420" r="70" fill="#81c784"/>
+    <circle cx="210" cy="380" r="65" fill="#66bb6a"/>
+    <circle cx="260" cy="430" r="55" fill="#4caf50"/>
+    <!-- Right Trees -->
+    <path d="M580,480 l30,-120 l30,120 z" fill="#388e3c"/>
+    <path d="M620,490 l25,-90 l25,90 z" fill="#4caf50"/>
+    <circle cx="570" cy="460" r="50" fill="#81c784"/>
+
+    <!-- Chimney Smoke -->
+    <path d="M595,335 q-10,-15 5,-30 q15,-15 -5,-30" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- ========================================== -->
+    <!-- THE HOUSE STRUCTURE                        -->
+    <!-- ========================================== -->
+    <!-- Chimney -->
+    <rect x="580" y="340" width="30" height="60" fill="#78909c"/>
+    <rect x="575" y="335" width="40" height="10" rx="2" fill="#546e7a"/>
+
+    <!-- Main House Body (Blue Walls) -->
+    <rect x="330" y="420" width="280" height="150" fill="url(#wallGrad)"/>
+
+    <!-- Porch Floor / Base -->
+    <rect x="310" y="560" width="320" height="15" fill="#b0bec5"/>
+    <rect x="340" y="575" width="260" height="10" fill="#78909c"/>
+
+    <!-- Main Roof Gable (Triangular) -->
+    <polygon points="300,430 470,300 640,430" fill="url(#roofGrad)"/>
+    <!-- Roof Trim / Fascia -->
+    <polygon points="300,430 470,300 470,315 315,430" fill="#ffffff" opacity="0.9"/>
+    <polygon points="640,430 470,300 470,315 625,430" fill="#ffffff" opacity="0.9"/>
+
+    <!-- Porch Roof -->
+    <polygon points="410,485 470,440 530,485" fill="#546e7a"/>
+    <polygon points="410,485 470,440 470,448 420,485" fill="#ffffff"/>
+    <polygon points="530,485 470,440 470,448 520,485" fill="#ffffff"/>
+
+    <!-- Porch Columns -->
+    <rect x="420" y="485" width="8" height="75" fill="#ffffff"/>
+    <rect x="512" y="485" width="8" height="75" fill="#ffffff"/>
+    <!-- Porch Railing -->
+    <rect x="345" y="530" width="75" height="5" fill="#ffffff"/>
+    <line x1="360" y1="535" x2="360" y2="560" stroke="#ffffff" stroke-width="3"/>
+    <line x1="380" y1="535" x2="380" y2="560" stroke="#ffffff" stroke-width="3"/>
+    <line x1="400" y1="535" x2="400" y2="560" stroke="#ffffff" stroke-width="3"/>
+
+    <!-- Front Door -->
+    <rect x="445" y="480" width="50" height="80" rx="3" fill="#4e342e"/>
+    <rect x="450" y="485" width="40" height="75" rx="2" fill="#5d4037"/>
+    <!-- Door Window & Wreath -->
+    <circle cx="470" cy="505" r="12" fill="#ffe082"/>
+    <circle cx="470" cy="505" r="12" fill="none" stroke="#2e7d32" stroke-width="5" stroke-dasharray="4,2"/>
+    <!-- Doorknob -->
+    <circle cx="452" cy="525" r="2.5" fill="#ffb300"/>
+
+    <!-- Windows -->
+    <!-- Attic Window (Top Gable) -->
+    <rect x="455" y="360" width="30" height="45" rx="3" fill="#ffffff"/>
+    <rect x="459" y="364" width="22" height="37" fill="#fff59d"/>
+    <line x1="470" y1="364" x2="470" y2="401" stroke="#ffffff" stroke-width="2"/>
+    <line x1="459" y1="380" x2="481" y2="380" stroke="#ffffff" stroke-width="2"/>
+
+    <!-- Left Main Window -->
+    <rect x="360" y="460" width="45" height="55" rx="4" fill="#ffffff"/>
+    <rect x="364" y="464" width="37" height="47" fill="#fff59d"/>
+    <line x1="382.5" y1="464" x2="382.5" y2="511" stroke="#b0bec5" stroke-width="2"/>
+    <line x1="364" y1="485" x2="401" y2="485" stroke="#b0bec5" stroke-width="2"/>
+
+    <!-- Right Main Window -->
+    <rect x="535" y="460" width="45" height="55" rx="4" fill="#ffffff"/>
+    <rect x="539" y="464" width="37" height="47" fill="#fff59d"/>
+    <line x1="557.5" y1="464" x2="557.5" y2="511" stroke="#b0bec5" stroke-width="2"/>
+    <line x1="539" y1="485" x2="576" y2="485" stroke="#b0bec5" stroke-width="2"/>
+
+    <!-- Window Glow Accent Lines -->
+    <path d="M368,468 l20,20 M543,468 l20,20" stroke="#ffffff" stroke-width="1.5" opacity="0.6" stroke-linecap="round"/>
+
+    <!-- Lantern Lights near Porch -->
+    <circle cx="345" cy="470" r="6" fill="#ffe082" filter="url(#glow)"/>
+    <rect x="342" y="464" width="6" height="4" fill="#37474f"/>
+
+    <!-- ========================================== -->
+    <!-- FOREGROUND & GARDEN DETAILS                -->
+    <!-- ========================================== -->
+    <!-- Main Lawn Ground -->
+    <path d="M130,550 q150,20 340,-10 q180,-30 350,10 l0,100 l-690,0 z" fill="#a1d97d"/>
+    <path d="M130,565 q200,30 400,0 q100,-15 190,10 l0,100 l-790,0 z" fill="#7cb342"/>
+
+    <!-- Pathway to the Door -->
+    <path d="M445,575 Q410,610 440,650 L490,650 Q465,610 495,575 Z" fill="#cfd8dc"/>
+    <!-- Pathway Stepping Stones Detail -->
+    <circle cx="445" cy="590" r="6" fill="#b0bec5"/>
+    <circle cx="465" cy="605" r="8" fill="#90a4ae"/>
+    <circle cx="450" cy="625" r="9" fill="#b0bec5"/>
+    <circle cx="470" cy="640" r="11" fill="#90a4ae"/>
+
+    <!-- Front Bushes and Potted Plants -->
+    <circle cx="335" cy="555" r="18" fill="#2e7d32"/>
+    <circle cx="350" cy="560" r="14" fill="#4caf50"/>
+    <circle cx="600" cy="555" r="22" fill="#2e7d32"/>
+    <circle cx="575" cy="560" r="16" fill="#4caf50"/>
+
+    <!-- Tiny Flowers in Foreground -->
+    <circle cx="220" cy="590" r="4" fill="#ff8a80"/>
+    <circle cx="225" cy="594" r="3" fill="#ff8a80"/>
+    <circle cx="280" cy="600" r="4" fill="#ffd54f"/>
+    <circle cx="540" cy="605" r="5" fill="#ff8a80"/>
+    <circle cx="545" cy="601" r="3" fill="#ffd54f"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- USER AVATAR BADGE (Overlapping the frame)   -->
+  <!-- ========================================== -->
+  <g filter="url(#avatarShadow)">
+    <!-- White Border Outer Ring -->
+    <circle cx="400" cy="150" r="56" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+    <!-- Inner Blue Profile Circle -->
+    <circle cx="400" cy="150" r="48" fill="none" stroke="url(#avatarGrad)" stroke-width="6"/>
+    
+    <!-- User Icon - Head -->
+    <circle cx="400" cy="136" r="14" fill="none" stroke="#1565c0" stroke-width="6"/>
+    <!-- User Icon - Shoulders / Body -->
+    <path d="M364,174 A38,38 0 0,1 436,174" fill="none" stroke="#1565c0" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- TEXT LABEL "MY HOME"                       -->
+  <!-- ========================================== -->
+  <text x="400" y="665" 
+        font-family="'Montserrat', 'Segoe UI', Helvetica, Arial, sans-serif" 
+        font-size="34" 
+        font-weight="bold" 
+        fill="#263238" 
+        text-anchor="middle" 
+        letter-spacing="2">MY HOME</text>
+</svg>
+
+                
         </section>
         <section>
             <h2>Section 02</h2>
