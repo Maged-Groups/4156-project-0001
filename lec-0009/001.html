@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #113;
+            padding: 20px;
+
+            /* button:hover+div {
+                background-color: green;
+                display: block;
+            } */
+
+
+            .drop-down {
+                /* border: solid red; */
+                /* display: none; */
+                /* background-color: gray; */
+
+
+                .menu {
+                    display: none;
+
+                }
+
+                &:hover {
+                    /* background-color: greenyellow; */
+
+                    .menu {
+                        /* background-color: lightblue; */
+                        display: block;
+                    }
+                }
+
+
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                    display: block;
+                }
+            }
+        }
+    </style>
+
+    <nav>
+
+        <div class="drop-down">
+
+            <button>menu</button>
+
+            <div class="menu">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/contacts">Contacts</a>
+            </div>
+
+        </div>
+    </nav>
+</body>
+
+</html>
