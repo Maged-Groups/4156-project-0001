@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .parent {
+            width: 400px;
+            height: 300px;
+            border: solid blue 10px;
+            padding-right: 20px;
+
+            display: flex;
+            flex-wrap: wrap;
+            /* column-gap: 10px;
+            row-gap: 40px; */
+
+            /* gap: 50px 10px; */
+            /* gap: 10px; */
+
+            /* align-items: center; */
+            align-content: center;
+        }
+
+        .child {
+            border: solid 1px red;
+            color: white;
+            padding: 5px;
+            background-color: brown;
+        }
+    </style>
+    <div class="parent" dir="ltr">
+        <div class="child">1</div>
+        <div class="child">2</div>
+        <div class="child">3</div>
+        <div class="child">4</div>
+        <div class="child">5</div>
+        <div class="child">6</div>
+        <div class="child">7</div>
+        <div class="child">8</div>
+        <div class="child">9</div>
+        <div class="child">10</div>
+        <div class="child">11</div>
+        <div class="child">12</div>
+        <div class="child">13</div>
+        <div class="child">14</div>
+        <div class="child">15</div>
+        <div class="child">16</div>
+        <div class="child">17</div>
+        <div class="child">18</div>
+        <div class="child">19</div>
+        <div class="child">20</div>
+        <div class="child">21</div>
+        <div class="child">22</div>
+        <div class="child">23</div>
+        <div class="child">24</div>
+        <div class="child">25</div>
+        <div class="child">26</div>
+        <div class="child">27</div>
+        <div class="child">28</div>
+        <div class="child">29</div>
+        <div class="child">30</div>
+    </div>
+</body>
+
+</html>
