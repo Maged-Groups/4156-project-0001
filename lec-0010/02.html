@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .parent {
+            width: 300px;
+            height: 400px;
+            border: solid blue;
+
+            display: flex;
+            justify-content: space-around;
+            /* justify-content: space-evenly; */
+
+            align-items: baseline;
+        }
+
+        .child {
+            border: solid 1px red;
+            color: white;
+            padding: 5px;
+            background-color: brown;
+        }
+    </style>
+    <div class="parent" dir="ltr">
+        <div class="child">1</div>
+        <div class="child">2</div>
+        <div class="child">3</div>
+        <div class="child">4</div>
+        <div class="child">5</div>
+    </div>
+</body>
+
+</html>
