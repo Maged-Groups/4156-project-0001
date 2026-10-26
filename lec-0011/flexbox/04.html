@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        .parent {
+            display: flex;
+            height: 200px;
+            background-color: lightgreen;
+            align-items: center;
+
+            >div {
+                border: solid;
+                flex: 1 0 0;
+                background-color: lightsalmon;
+
+                &:nth-of-type(1) {
+                    align-self: flex-start;
+                }
+
+                &:last-of-type {
+                    align-self: flex-end;
+                }
+            }
+        }
+    </style>
+    <div class="parent">
+
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Magni eum eveniet sunt modi?</div>
+        <div>Quae cum minima ipsa fugiat!</div>
+        <div>Eligendi dolore eos eius. Ullam.</div>
+        <div>Temporibus totam iure dicta quasi.</div>
+    </div>
+</body>
+
+</html>

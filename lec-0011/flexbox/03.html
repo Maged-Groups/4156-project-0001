@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        .parent {
+            display: flex;
+            height: 200px;
+            /* flex-direction: column; */
+            background-color: lightblue;
+
+            >div {
+                border: solid 1px;
+                /* flex-basis: 0px;
+                flex-grow: 1; */
+
+                /* Shorthand */
+                /* grow - shrink - basis */
+                flex: 1 0 0;
+                overflow: hidden;
+                background-color: indianred;
+
+
+                &:nth-of-type(4) {
+                }
+
+                &:nth-of-type(7) {
+                    /* flex-shrink: 0; */
+                }
+            }
+        }
+    </style>
+    <div class="parent">
+
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Tempora eum laborum cumque corporis?</div>
+        <div>Rem, est modi! Soluta, quam.</div>
+        <div>Aliquid nisi tempore similique sequi?</div>
+        <div>Rem, est modi! Soluta, quam. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, minus.
+        </div>
+        <div>Aliquid nisi tempore similique sequi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi.</div>
+        <div>Rem, est modi! Soluta, quam.</div>
+        <div>Aliquid nisi tempore similique sequi?</div>
+        <div>Aliquid nisi tempore similique sequi?</div>
+        <div>Tempore iusto nihil doloribus suscipit?</div>
+    </div>
+</body>
+
+</html>

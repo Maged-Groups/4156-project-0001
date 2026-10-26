@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Handlee", cursive;
+            font-size: 12px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .profile-photo {
+            width: 90%;
+            margin: 8px auto;
+            border-radius: 16px;
+            border: solid 1px;
+            overflow: hidden;
+        }
+
+        .profile-name {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .profile-bio {
+            text-align: center;
+        }
+
+        .yellow-1,
+        .yellow-2 {
+            width: 90%;
+            margin: 10px auto;
+            background-color: palegoldenrod;
+            border-radius: 14px;
+            height: 100px;
+            padding: 14px;
+        }
+
+
+        .green-1,
+        .green-2,
+        .green-3 {
+            width: 90%;
+            margin: 10px auto;
+            background-color: lightgreen;
+            border-radius: 14px;
+            height: 100px;
+            padding: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .yellows {
+                display: flex;
+                gap: 8px;
+            }
+        }
+
+
+        @media (min-width: 1024px) {
+            .greens {
+                display: flex;
+                gap: 8px;
+
+            }
+        }
+    </style>
+
+    <div class="profile-photo"><img src="bg-00002.jpg" alt=""></div>
+    <div class="profile-name">The Nature</div>
+    <div class="profile-bio">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum, hic!</div>
+
+    <div class="yellows">
+        <div class="yellow-1">yellow-1</div>
+        <div class="yellow-2">yellow-2</div>
+    </div>
+
+    <div class="greens">
+        <div class="green-1">green-1</div>
+        <div class="green-2">green-2</div>
+        <div class="green-3">green-3</div>
+    </div>
+</body>
+
+</html>

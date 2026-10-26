@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .parent {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            padding: 10px;
+            background-color: lightgreen;
+            align-items: center;
+
+
+            h2 {
+                /* order: 1; */
+            }
+
+            div {}
+
+            p {
+                order: -1;
+            }
+
+        }
+    </style>
+    <div class="parent">
+        <h2>section Title</h2>
+
+
+        <div>
+            <img src="bg-0001.jpg" alt="">
+        </div>
+
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, libero?</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        .parent {
+            display: flex;
+            height: 200px;
+            /* flex-direction: column; */
+            background-color: lightblue;
+
+            >div {
+                border: solid 1px;
+                /* flex-basis: 25%; */
+                background-color: indianred;
+
+                &:nth-of-type(1) {
+                    flex-grow: 1;
+                }
+
+                &:nth-of-type(2) {
+                    flex-grow: 2;
+                }
+            }
+        }
+    </style>
+    <div class="parent">
+
+        <div>A Lorem,</div>
+        <div>B</div>
+        <div>C Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, ex.</div>
+        <div>D</div>
+
+    </div>
+</body>
+
+</html>
