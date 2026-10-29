@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* transition: all 0.3s 0.2s; */
+        }
+
+        body {
+            padding: 24px;
+        }
+
+        p {
+            background-color: lightgreen;
+            padding: 24px;
+            width: 250px;
+
+            /* animation-name: breath;
+            animation-duration: .5s;
+            animation-delay: 1s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear; */
+
+            animation: breath 0.5s .02s alternate forwards infinite linear;
+        }
+
+
+        @keyframes breath {
+            from {width: 250px;}
+            to {width: 750px;}
+        }
+            
+        
+    </style>
+
+
+    <p>Page Title</p>
+
+
+
+
+</body>
+
+</html>

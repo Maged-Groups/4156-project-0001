@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 95%;
+            margin: 14px auto;
+            border: solid 1px tomato;
+            background-color: #aa6666;
+            padding: 14px;
+        }
+
+        .txt {
+            display: none;
+        }
+
+        .stamp,
+        .sign {
+            display: none;
+        }
+
+        @media (min-width: 576px) {
+            .container {
+                max-width: 500px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 980px;
+
+                p {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        @media (orientation: landscape) {
+            body {
+                background-color: lightsalmon;
+            }
+        }
+
+        @media (orientation: portrait) {
+            body {
+                background-color: lightseagreen;
+            }
+        }
+
+        @media speech {
+
+            .txt {
+                display: block;
+            }
+        }
+
+        @media screen {
+            .important {
+                border: solid #093443 10px;
+            }
+        }
+
+        @media print {
+            .stamp {
+                display: block;
+                width: 64px;
+                height: 64px;
+                border-radius: 50%;
+                border: solid 2px;
+                margin: 14px auto;
+            }
+
+            .sign {
+                display: block;
+                border-bottom: 1px dotted;
+                width: 64px;
+                margin: 14px auto;
+            }
+        }
+
+        @media print and (orientation: landscape) {
+            h1 {
+                text-align: center;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Website Title</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est veniam laboriosam ducimus libero, voluptate
+            minus magni assumenda dolor voluptatibus blanditiis eveniet ratione ab officiis neque at! Blanditiis culpa
+            dolore dignissimos.</p>
+    </div>
+
+
+    <p class="txt">
+        This paragraph is not important to be seen on the screen
+    </p>
+
+    <div class="important">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate labore voluptatum sunt
+        laudantium! Pariatur ullam autem provident, necessitatibus voluptatem culpa quibusdam error. Magnam, accusantium
+        tempora? Adipisci delectus voluptatem necessitatibus tempore amet sapiente cumque nulla qui officiis velit
+        expedita eaque ducimus, neque excepturi ex similique quas. Reprehenderit fugit voluptas tempora eligendi dolorum
+        corporis suscipit odio dolore quas dignissimos corrupti, magnam molestias voluptatum veritatis neque fuga optio
+        vitae cupiditate eum dicta assumenda natus, ipsam incidunt! Beatae, iusto laudantium tempore quibusdam officia
+        voluptatum facilis similique tempora odio, accusamus voluptates! Aliquid cum doloremque pariatur repellat,
+        eaque, assumenda dolores, quas itaque maxime velit tenetur ullam!</div>
+
+
+
+    <footer>
+        <div class="stamp"></div>
+        <div class="sign"></div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        body {
+            padding: 24px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+             border-radius: 14px;
+            position: relative;
+            border: solid 1px;
+            border-radius: 14px;
+            /* overflow: hidden; */
+        }
+
+        .price {
+            width: 75px;
+            text-align: center;
+            background-color: lightpink;
+            position: absolute;
+            right: -20px;
+            top: -10px;
+            border-radius: 8px;
+
+            animation: move 3s alternate infinite ease-in-out;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            border-radius: 14px;
+            transform: scale(0.5);
+
+            &:hover {
+                transform: scale(0.55);
+            }
+        }
+
+        @keyframes move {
+            from {
+                right: -20px;
+                top: -10px;
+            }
+
+            to {
+                top: 20px;
+            }
+        }
+    </style>
+
+    <div class="container">
+
+        <div class="box">
+            <img src="imgs/tshirt.png" alt="">
+            <div class="price">1500</div>
+        </div>
+
+
+        <div class="box">
+            <img src="imgs/tshirt.png" alt="">
+            <div class="price">1500</div>
+        </div>
+
+
+
+        <div class="box">
+            <img src="imgs/tshirt.png" alt="">
+            <div class="price">1500</div>
+        </div>
+
+
+        <div class="box">
+            <img src="imgs/tshirt.png" alt="">
+            <div class="price">1500</div>
+        </div>
+
+
+        <div class="box">
+            <img src="imgs/tshirt.png" alt="">
+            <div class="price">1500</div>
+        </div>
+
+
+        <div class="box">
+            <img src="imgs/tshirt.png" alt="">
+            <div class="price">1500</div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

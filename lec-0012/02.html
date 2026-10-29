@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        p {
+            padding: 14px;
+            border: solid 4px #000;
+            color: indigo;
+            background-color: lightpink;
+            
+            transition-property: all;
+            transition-duration: .3s;
+            
+            &:hover {
+                background-color: lightgreen;
+                border-width: 20px;
+                transition-delay: 0.2s;
+                color: red;
+            }
+
+
+            &:active {
+                background-color: lightseagreen;
+            }
+        }
+
+
+        input {
+            &:focus {
+                outline: red 10px dotted;
+            }
+        }
+    </style>
+
+
+    <p>Page Title</p>
+    <p>Page Title</p>
+    <p>Page Title</p>
+    <p>Page Title</p>
+    <p>Page Title</p>
+    <p>Page Title</p>
+    <p>Page Title</p>
+
+    <a href="https:www.google.com">Home</a>
+
+    <input type="text">
+
+</body>
+
+</html>

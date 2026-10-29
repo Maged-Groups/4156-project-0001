@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* transition: all 0.3s 0.2s; */
+        }
+
+        body {
+            padding: 24px;
+        }
+
+        p {
+            background-color: lightgreen;
+            padding: 24px;
+            width: 250px;
+
+            animation: breath 5s forwards linear;
+        }
+
+
+        @keyframes breath {
+            0% {
+                background-color: lightgreen;
+                width: 250px;
+                height: 100px;
+            }
+
+            10% {
+                background-color: lightpink;
+                width: 250px;
+            }
+
+            50% {
+                width: 450px;
+                height: 100px;
+                background-color: lightpink;
+            }
+
+            75% {
+                height: 300px;
+            }
+
+            100% {
+                background-color: lightpink;
+            }
+        }
+    </style>
+
+
+    <p>Page Title</p>
+
+
+
+
+</body>
+
+</html>
