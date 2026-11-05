@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nimbus — Build beautiful interfaces, faster</title>
+    <meta name="description" content="Nimbus is a fictional product landing page built with Tailwind CSS v4." />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="min-h-screen bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500/30">
+
+    <!-- ============================================================
+       1. HERO SECTION  (solid background, no gradients)
+  ============================================================= -->
+    <section id="hero" class="border-b border-white/10 bg-slate-950">
+        <div class="mx-auto flex min-h-[70vh] max-w-4xl flex-col items-center justify-center px-6 py-24 text-center">
+
+            <!-- Badge -->
+            <span
+                class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-indigo-300">
+                <i class="fa-solid fa-circle text-[6px]" aria-hidden="true"></i>
+                Version 4.3 is live
+            </span>
+
+            <!-- Headline (solid accent colour, no text gradient) -->
+            <h1 class="mt-8 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                Ship beautiful interfaces
+                <span class="text-indigo-400">in record time</span>
+            </h1>
+
+            <!-- Sub-headline -->
+            <p class="mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">
+                Nimbus gives your team a design system, a component library and a build
+                pipeline that simply works — so you can spend your time on the product,
+                not on the plumbing.
+            </p>
+
+            <!-- Call to action -->
+            <div class="mt-10 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">
+                <a href="#features"
+                    class="w-full rounded-xl bg-indigo-500 px-7 py-3 text-center text-sm font-semibold text-white transition hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400 sm:w-auto">
+                    Get started free
+                </a>
+                <a href="#about"
+                    class="w-full rounded-xl border border-white/15 bg-white/5 px-7 py-3 text-center text-sm font-semibold text-slate-100 transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 sm:w-auto">
+                    Read the docs
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+       2. NAVBAR
+  ============================================================= -->
+    <nav class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-md"
+        aria-label="Main navigation">
+        <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+
+            <!-- Brand -->
+            <a href="#hero" class="flex items-center gap-2.5 text-lg font-bold tracking-tight">
+                <span class="grid h-9 w-9 place-items-center rounded-xl bg-indigo-500" aria-hidden="true">
+                    <i class="fa-solid fa-cloud text-base text-white"></i>
+                </span>
+                Nimbus
+            </a>
+
+            <!-- Links -->
+            <ul class="hidden items-center gap-8 text-sm font-medium text-slate-300 md:flex">
+                <li><a href="#features" class="transition hover:text-white">Features</a></li>
+                <li><a href="#about" class="transition hover:text-white">About</a></li>
+                <li><a href="#pricing" class="transition hover:text-white">Pricing</a></li>
+                <li><a href="#contact" class="transition hover:text-white">Contact</a></li>
+            </ul>
+
+            <!-- Action -->
+            <a href="#"
+                class="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                Sign in
+            </a>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+       3. FOUR FEATURE CARDS
+  ============================================================= -->
+    <section id="features" class="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+        <div class="mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Everything you need</h2>
+            <p class="mt-4 text-slate-400">
+                Four pillars that keep your design system consistent, fast and accessible.
+            </p>
+        </div>
+
+        <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+            <!-- Card 1 -->
+            <article
+                class="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-indigo-400/40 hover:bg-white/10">
+                <span class="grid h-11 w-11 place-items-center rounded-xl bg-indigo-500/15 text-indigo-300"
+                    aria-hidden="true">
+                    <i class="fa-solid fa-bolt text-lg"></i>
+                </span>
+                <h3 class="mt-5 text-lg font-semibold">Blazing fast</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-400">
+                    A build pipeline measured in milliseconds. Hot reload, tree-shaking
+                    and zero-config optimisation out of the box.
+                </p>
+            </article>
+
+            <!-- Card 2 -->
+            <article
+                class="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-indigo-400/40 hover:bg-white/10">
+                <span class="grid h-11 w-11 place-items-center rounded-xl bg-sky-500/15 text-sky-300"
+                    aria-hidden="true">
+                    <i class="fa-solid fa-cubes text-lg"></i>
+                </span>
+                <h3 class="mt-5 text-lg font-semibold">Modular by default</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-400">
+                    Every component is a self-contained block you can copy, remix or
+                    delete without breaking anything else on the page.
+                </p>
+            </article>
+
+            <!-- Card 3 -->
+            <article
+                class="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-indigo-400/40 hover:bg-white/10">
+                <span class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-500/15 text-emerald-300"
+                    aria-hidden="true">
+                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                </span>
+                <h3 class="mt-5 text-lg font-semibold">Accessible</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-400">
+                    Keyboard-friendly focus states, semantic markup and colour contrast
+                    that passes WCAG AA without extra effort.
+                </p>
+            </article>
+
+            <!-- Card 4 -->
+            <article
+                class="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-indigo-400/40 hover:bg-white/10">
+                <span class="grid h-11 w-11 place-items-center rounded-xl bg-fuchsia-500/15 text-fuchsia-300"
+                    aria-hidden="true">
+                    <i class="fa-solid fa-users text-lg"></i>
+                </span>
+                <h3 class="mt-5 text-lg font-semibold">Built for teams</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-400">
+                    Shared tokens, shared components, shared vocabulary. Onboard a new
+                    developer in an afternoon instead of a week.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+       4. SPLITTER / DIVIDER  (solid lines only)
+  ============================================================= -->
+    <div class="mx-auto max-w-6xl px-6" role="separator" aria-label="Section divider">
+        <div class="flex items-center gap-5">
+            <span class="h-px flex-1 bg-white/25" aria-hidden="true"></span>
+            <span class="whitespace-nowrap text-xs font-medium uppercase tracking-[0.3em] text-slate-500">
+                Why teams choose Nimbus
+            </span>
+            <span class="h-px flex-1 bg-white/25" aria-hidden="true"></span>
+        </div>
+    </div>
+
+    <!-- ============================================================
+       5. THREE TEXT COLUMNS
+  ============================================================= -->
+    <section id="about" class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+
+            <div class="border-t border-white/10 pt-6">
+                <h3 class="text-xl font-semibold tracking-tight">Designed for humans</h3>
+                <p class="mt-3 text-sm leading-relaxed text-slate-400">
+                    Good interfaces disappear. We obsess over rhythm, spacing and contrast
+                    so that your users notice the content — never the layout. Every
+                    default has been chosen for you by someone who cares.
+                </p>
+            </div>
+
+            <div class="border-t border-white/10 pt-6">
+                <h3 class="text-xl font-semibold tracking-tight">Engineered for scale</h3>
+                <p class="mt-3 text-sm leading-relaxed text-slate-400">
+                    Start with a single landing page and grow into a full product suite
+                    without rewriting a thing. Design tokens cascade down, so one change
+                    updates every screen in your application at once.
+                </p>
+            </div>
+
+            <div class="border-t border-white/10 pt-6">
+                <h3 class="text-xl font-semibold tracking-tight">Open by principle</h3>
+                <p class="mt-3 text-sm leading-relaxed text-slate-400">
+                    No lock-in, no black boxes. The output is plain HTML and CSS that you
+                    can read, edit and hand over to anyone. If you ever want to leave,
+                    your codebase stays exactly where it is — yours.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+       6. FOOTER
+  ============================================================= -->
+    <footer id="contact" class="border-t border-white/10 bg-slate-950">
+        <div class="mx-auto max-w-6xl px-6 py-14">
+
+            <div class="grid grid-cols-2 gap-10 sm:grid-cols-4">
+
+                <!-- Brand block -->
+                <div class="col-span-2 sm:col-span-1">
+                    <a href="#hero" class="flex items-center gap-2.5 text-lg font-bold tracking-tight">
+                        <span class="grid h-9 w-9 place-items-center rounded-xl bg-indigo-500" aria-hidden="true">
+                            <i class="fa-solid fa-cloud text-base text-white"></i>
+                        </span>
+                        Nimbus
+                    </a>
+                    <p class="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
+                        A fictional product landing page built as a teaching example for
+                        Tailwind CSS v4.
+                    </p>
+                </div>
+
+                <!-- Links: Product -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white">Product</h4>
+                    <ul class="mt-4 space-y-3 text-sm text-slate-400">
+                        <li><a href="#features" class="transition hover:text-white">Features</a></li>
+                        <li><a href="#pricing" class="transition hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="transition hover:text-white">Changelog</a></li>
+                        <li><a href="#" class="transition hover:text-white">Roadmap</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links: Company -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white">Company</h4>
+                    <ul class="mt-4 space-y-3 text-sm text-slate-400">
+                        <li><a href="#about" class="transition hover:text-white">About</a></li>
+                        <li><a href="#" class="transition hover:text-white">Blog</a></li>
+                        <li><a href="#" class="transition hover:text-white">Careers</a></li>
+                        <li><a href="#" class="transition hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links: Legal -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white">Legal</h4>
+                    <ul class="mt-4 space-y-3 text-sm text-slate-400">
+                        <li><a href="#" class="transition hover:text-white">Privacy</a></li>
+                        <li><a href="#" class="transition hover:text-white">Terms</a></li>
+                        <li><a href="#" class="transition hover:text-white">Cookies</a></li>
+                        <li><a href="#" class="transition hover:text-white">Licence</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div
+                class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+                <p class="text-xs text-slate-500">
+                    &copy; <span id="year">2026</span> Nimbus Studio. All rights reserved.
+                </p>
+                <p class="text-xs text-slate-500">
+                    Built with Tailwind CSS v4 — for learning purposes only.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
