@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before & After</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            /* margin: 0;
+            padding: 0; */
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        .parent {
+            ul {
+                list-style-type: none;
+                display: grid;
+                gap: 20px;
+
+                li {
+                    &::before {
+                        content: '💘';
+                    }
+                    &:hover::after {
+                        content: '💘';
+                    }
+                }
+            }
+        }
+    </style>
+
+    <div class="parent">
+        <ul>
+            <li>Lorem, ipsum dolor.</li>
+            <li>Quae, consequuntur eum.</li>
+            <li>Ducimus, esse quo!</li>
+            <li>Fugit, repellat atque?</li>
+            <li>A, eum assumenda.</li>
+            <li>Perspiciatis, hic aspernatur?</li>
+            <li>Quisquam, inventore excepturi!</li>
+            <li>Blanditiis, vel praesentium?</li>
+            <li>Odit, voluptatem accusamus.</li>
+            <li>Autem, suscipit aspernatur.</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

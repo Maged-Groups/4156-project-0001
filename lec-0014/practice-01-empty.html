@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nimbus — Build beautiful interfaces, faster</title>
+    <meta name="description" content="Nimbus is a fictional product landing page built with Tailwind CSS v4." />
+
+    <!-- Tailwind CSS v4 (CDN) -->
+
+    <!-- Font Awesome 6.5 (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- ============================================================
+       1. HERO SECTION
+       Needs: full-width block, solid bg-slate-950, bottom border,
+       min-h-[70vh], centred column, badge, H1 with coloured span,
+       paragraph, and two side-by-side buttons.
+  ============================================================= -->
+    <section id="hero">
+        <div>
+
+            <span>
+                <i class="fa-solid fa-circle" aria-hidden="true"></i>
+                Version 4.3 is live
+            </span>
+
+            <h1>
+                Ship beautiful interfaces
+                <span>in record time</span>
+            </h1>
+
+            <p>
+                Nimbus gives your team a design system, a component library and a build
+                pipeline that simply works — so you can spend your time on the product,
+                not on the plumbing.
+            </p>
+
+            <div>
+                <a href="#features">Get started free</a>
+                <a href="#about">Read the docs</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+       2. NAVBAR
+       Needs: sticky top-0 z-50, translucent bg + backdrop blur,
+       bottom border, brand with icon box, 4 links hidden below md,
+       and a sign-in button.
+  ============================================================= -->
+    <nav aria-label="Main navigation">
+        <div>
+
+            <a href="#hero">
+                <span aria-hidden="true">
+                    <i class="fa-solid fa-cloud"></i>
+                </span>
+                Nimbus
+            </a>
+
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <a href="#">Sign in</a>
+
+        </div>
+    </nav>
+
+    <!-- ============================================================
+       3. FOUR FEATURE CARDS
+       Needs: centred heading block, then a 1 / 2 / 4 column grid
+       (base / sm / lg). Each card: rounded-2xl, bg-white/5, border,
+       hover lift, coloured icon box, H3 and paragraph.
+  ============================================================= -->
+    <section id="features">
+
+        <div>
+            <h2>Everything you need</h2>
+            <p>
+                Four pillars that keep your design system consistent, fast and accessible.
+            </p>
+        </div>
+
+        <div>
+
+            <!-- Card 1 -->
+            <article>
+                <span aria-hidden="true">
+                    <i class="fa-solid fa-bolt"></i>
+                </span>
+                <h3>Blazing fast</h3>
+                <p>
+                    A build pipeline measured in milliseconds. Hot reload, tree-shaking
+                    and zero-config optimisation out of the box.
+                </p>
+            </article>
+
+            <!-- Card 2 -->
+            <article>
+                <span aria-hidden="true">
+                    <i class="fa-solid fa-cubes"></i>
+                </span>
+                <h3>Modular by default</h3>
+                <p>
+                    Every component is a self-contained block you can copy, remix or
+                    delete without breaking anything else on the page.
+                </p>
+            </article>
+
+            <!-- Card 3 -->
+            <article>
+                <span aria-hidden="true">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </span>
+                <h3>Accessible</h3>
+                <p>
+                    Keyboard-friendly focus states, semantic markup and colour contrast
+                    that passes WCAG AA without extra effort.
+                </p>
+            </article>
+
+            <!-- Card 4 -->
+            <article>
+                <span aria-hidden="true">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+                <h3>Built for teams</h3>
+                <p>
+                    Shared tokens, shared components, shared vocabulary. Onboard a new
+                    developer in an afternoon instead of a week.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+       4. SPLITTER / DIVIDER
+       Needs: same max-width container, flex row, two solid h-px
+       flex-1 lines with a centred uppercase label between them.
+  ============================================================= -->
+    <div role="separator" aria-label="Section divider">
+        <div>
+            <span aria-hidden="true"></span>
+            <span>Why teams choose Nimbus</span>
+            <span aria-hidden="true"></span>
+        </div>
+    </div>
+
+    <!-- ============================================================
+       5. THREE TEXT COLUMNS
+       Needs: 1 column on mobile, 3 at md, gap-10 / md:gap-8.
+       Each column has a top border, pt-6, H3 and paragraph.
+  ============================================================= -->
+    <section id="about">
+        <div>
+
+            <div>
+                <h3>Designed for humans</h3>
+                <p>
+                    Good interfaces disappear. We obsess over rhythm, spacing and contrast
+                    so that your users notice the content — never the layout. Every
+                    default has been chosen for you by someone who cares.
+                </p>
+            </div>
+
+            <div>
+                <h3>Engineered for scale</h3>
+                <p>
+                    Start with a single landing page and grow into a full product suite
+                    without rewriting a thing. Design tokens cascade down, so one change
+                    updates every screen in your application at once.
+                </p>
+            </div>
+
+            <div>
+                <h3>Open by principle</h3>
+                <p>
+                    No lock-in, no black boxes. The output is plain HTML and CSS that you
+                    can read, edit and hand over to anyone. If you ever want to leave,
+                    your codebase stays exactly where it is — yours.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+       6. FOOTER
+       Needs: bg-slate-950, top border, 2 / 4 column grid at base / sm,
+       brand block spanning 2 cols on mobile, three link lists,
+       and a bottom bar with border-top and pt-8.
+  ============================================================= -->
+    <footer id="contact">
+        <div>
+
+            <div>
+
+                <!-- Brand block -->
+                <div>
+                    <a href="#hero">
+                        <span aria-hidden="true">
+                            <i class="fa-solid fa-cloud"></i>
+                        </span>
+                        Nimbus
+                    </a>
+                    <p>
+                        A fictional product landing page built as a teaching example for
+                        Tailwind CSS v4.
+                    </p>
+                </div>
+
+                <!-- Links: Product -->
+                <div>
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Changelog</a></li>
+                        <li><a href="#">Roadmap</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links: Company -->
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links: Legal -->
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Licence</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div>
+                <p>
+                    &copy; <span id="year">2026</span> Nimbus Studio. All rights reserved.
+                </p>
+                <p>
+                    Built with Tailwind CSS v4 — for learning purposes only.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

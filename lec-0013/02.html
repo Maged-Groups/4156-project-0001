@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before & After</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        .parent {
+            margin: 50px auto;
+            width: 400px;
+            aspect-ratio: 1;
+            background-color: lightpink;
+            position: relative;
+            overflow: hidden;
+
+            &::before,
+            &::after {
+                content: "";
+                width: 200px;
+                aspect-ratio: 1;
+                border-radius: 50%;
+
+                position: absolute;
+            }
+
+            &::before {
+                background-color: lightskyblue;
+                left: -50px;
+                top: -50px;
+
+            }
+
+            &::after {
+                background-color: lightseagreen;
+                right: -50px;
+                bottom: -50px;
+
+            }
+        }
+    </style>
+
+    <div class="parent"></div>
+
+</body>
+
+</html>

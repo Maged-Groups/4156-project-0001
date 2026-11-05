@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build Spec — Nimbus Landing Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+
+    <!-- ================= DOC HEADER ================= -->
+    <header class="border-b border-white/10 bg-slate-900/50">
+        <div class="mx-auto max-w-5xl px-6 py-16">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-400">Assignment brief</p>
+            <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Build the “Nimbus” Landing Page
+            </h1>
+            <p class="mt-4 max-w-2xl text-sm leading-relaxed text-slate-300">
+                Recreate the reference page exactly using HTML and Tailwind CSS v4 utility classes.
+                Follow every specification below section by section. Deviations from the spec will
+                cost marks, even if the page “looks nice”.
+            </p>
+
+            <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+                    <p class="text-xs uppercase tracking-wider text-slate-400">File</p>
+                    <p class="mt-1 font-mono text-sm text-white">index.html</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+                    <p class="text-xs uppercase tracking-wider text-slate-400">Sections</p>
+                    <p class="mt-1 font-mono text-sm text-white">6 (hero → footer)</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-white/5 p-4">
+                    <p class="text-xs uppercase tracking-wider text-slate-400">No build step</p>
+                    <p class="mt-1 font-mono text-sm text-white">CDN only</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-6 py-16">
+
+        <!-- ================= 0. SETUP ================= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">0 — Project setup</h2>
+            <p class="mt-2 text-sm text-slate-400">Everything below is mandatory.</p>
+
+            <div class="mt-6 space-y-4">
+                <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+                    <h3 class="text-sm font-semibold text-white">Required CDN links (inside <code
+                            class="font-mono text-indigo-300">&lt;head&gt;</code>)</h3>
+                    <pre
+                        class="mt-3 overflow-x-auto rounded-lg bg-slate-950 p-4 text-xs leading-relaxed text-slate-300"><code>&lt;script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"&gt;&lt;/script&gt;
+
+&lt;link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous" referrerpolicy="no-referrer" /&gt;</code></pre>
+                </div>
+
+                <div class="rounded-xl border border-rose-500/30 bg-rose-500/10 p-5">
+                    <h3 class="flex items-center gap-2 text-sm font-semibold text-rose-200">
+                        <i class="fa-solid fa-ban" aria-hidden="true"></i> Hard “do not” list
+                    </h3>
+                    <ul class="mt-3 space-y-1.5 text-sm text-rose-100/90">
+                        <li><i class="fa-solid fa-xmark mr-2 text-rose-400" aria-hidden="true"></i>No gradients
+                            anywhere: no <code class="font-mono">bg-gradient-*</code>, no <code
+                                class="font-mono">bg-linear-*</code>, no <code class="font-mono">bg-radial-*</code>.
+                        </li>
+                        <li><i class="fa-solid fa-xmark mr-2 text-rose-400" aria-hidden="true"></i>No text gradients: no
+                            <code class="font-mono">bg-clip-text</code> + <code
+                                class="font-mono">text-transparent</code>.</li>
+                        <li><i class="fa-solid fa-xmark mr-2 text-rose-400" aria-hidden="true"></i>No inline <code
+                                class="font-mono">&lt;svg&gt;</code> icons — all icons must come from Font Awesome.</li>
+                        <li><i class="fa-solid fa-xmark mr-2 text-rose-400" aria-hidden="true"></i>No images, no
+                            external fonts, no frameworks (Bootstrap, etc.).</li>
+                        <li><i class="fa-solid fa-xmark mr-2 text-rose-400" aria-hidden="true"></i>No custom <code
+                                class="font-mono">&lt;style&gt;</code> blocks or arbitrary CSS — utilities only.</li>
+                        <li><i class="fa-solid fa-xmark mr-2 text-rose-400" aria-hidden="true"></i>No JavaScript except
+                            the optional year script in the footer.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 1. DESIGN TOKENS ================= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">1 — Global design tokens</h2>
+            <p class="mt-2 text-sm text-slate-400">Apply these on <code
+                    class="font-mono text-indigo-300">&lt;body&gt;</code> and reuse throughout.</p>
+
+            <div class="mt-6 overflow-x-auto rounded-xl border border-white/10">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-white/5 text-xs uppercase tracking-wider text-slate-400">
+                        <tr>
+                            <th class="px-4 py-3">Token</th>
+                            <th class="px-4 py-3">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">Page background</td>
+                            <td class="px-4 py-3 font-mono">bg-slate-950</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">Default text</td>
+                            <td class="px-4 py-3 font-mono">text-slate-100</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">Muted body text</td>
+                            <td class="px-4 py-3 font-mono">text-slate-400</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">Accent / primary</td>
+                            <td class="px-4 py-3 font-mono">bg-indigo-500, hover:bg-indigo-400, text-indigo-300 / 400
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">Borders</td>
+                            <td class="px-4 py-3 font-mono">border-white/10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">Surface</td>
+                            <td class="px-4 py-3 font-mono">bg-white/5 (hover: bg-white/10)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">Container</td>
+                            <td class="px-4 py-3 font-mono">mx-auto max-w-6xl px-6</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">Radius</td>
+                            <td class="px-4 py-3 font-mono">rounded-lg (buttons) · rounded-xl (icons/panels) ·
+                                rounded-2xl (cards) · rounded-full (badge)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">Body classes</td>
+                            <td class="px-4 py-3 font-mono">min-h-screen bg-slate-950 text-slate-100 antialiased
+                                selection:bg-indigo-500/30</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">Smooth scroll</td>
+                            <td class="px-4 py-3 font-mono">scroll-smooth on &lt;html&gt;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-6 overflow-x-auto rounded-xl border border-white/10">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-white/5 text-xs uppercase tracking-wider text-slate-400">
+                        <tr>
+                            <th class="px-4 py-3">Breakpoint</th>
+                            <th class="px-4 py-3">Width</th>
+                            <th class="px-4 py-3">Must be tested</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">mobile (base)</td>
+                            <td class="px-4 py-3 font-mono">&lt; 640px</td>
+                            <td class="px-4 py-3">375px width</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">sm</td>
+                            <td class="px-4 py-3 font-mono">640px</td>
+                            <td class="px-4 py-3">640px width</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">md</td>
+                            <td class="px-4 py-3 font-mono">768px</td>
+                            <td class="px-4 py-3">768px width</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-indigo-300">lg</td>
+                            <td class="px-4 py-3 font-mono">1024px</td>
+                            <td class="px-4 py-3">1280px width</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= 2. HERO ================= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">2 — Hero section</h2>
+            <p class="mt-2 text-sm text-slate-400">Full-width block at the very top of the page. Element: <code
+                    class="font-mono text-indigo-300">&lt;section id="hero"&gt;</code>.</p>
+
+            <div class="mt-6 overflow-x-auto rounded-xl border border-white/10">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-white/5 text-xs uppercase tracking-wider text-slate-400">
+                        <tr>
+                            <th class="px-4 py-3 w-1/4">Element</th>
+                            <th class="px-4 py-3 w-1/3">Property</th>
+                            <th class="px-4 py-3">Classes / value</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr>
+                            <td class="px-4 py-3">Section</td>
+                            <td class="px-4 py-3">Background</td>
+                            <td class="px-4 py-3 font-mono">bg-slate-950 (solid — NO gradient)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Section</td>
+                            <td class="px-4 py-3">Bottom border</td>
+                            <td class="px-4 py-3 font-mono">border-b border-white/10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Inner wrapper</td>
+                            <td class="px-4 py-3">Width &amp; centering</td>
+                            <td class="px-4 py-3 font-mono">mx-auto max-w-4xl</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Inner wrapper</td>
+                            <td class="px-4 py-3">Padding</td>
+                            <td class="px-4 py-3 font-mono">px-6 py-24</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Inner wrapper</td>
+                            <td class="px-4 py-3">Height</td>
+                            <td class="px-4 py-3 font-mono">min-h-[70vh]</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Inner wrapper</td>
+                            <td class="px-4 py-3">Layout</td>
+                            <td class="px-4 py-3 font-mono">flex flex-col items-center justify-center text-center</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Badge</td>
+                            <td class="px-4 py-3">Shape &amp; padding</td>
+                            <td class="px-4 py-3 font-mono">rounded-full px-4 py-1.5 gap-2 inline-flex items-center</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Badge</td>
+                            <td class="px-4 py-3">Colors</td>
+                            <td class="px-4 py-3 font-mono">border border-white/15 bg-white/5 text-indigo-300</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Badge</td>
+                            <td class="px-4 py-3">Typography</td>
+                            <td class="px-4 py-3 font-mono">text-xs font-medium uppercase tracking-[0.2em]</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Badge icon</td>
+                            <td class="px-4 py-3">Icon</td>
+                            <td class="px-4 py-3 font-mono">fa-solid fa-circle text-[6px]</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">H1</td>
+                            <td class="px-4 py-3">Spacing</td>
+                            <td class="px-4 py-3 font-mono">mt-8</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">H1</td>
+                            <td class="px-4 py-3">Typography</td>
+                            <td class="px-4 py-3 font-mono">text-4xl sm:text-5xl lg:text-6xl font-extrabold
+                                tracking-tight</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">H1 highlight span</td>
+                            <td class="px-4 py-3">Colour</td>
+                            <td class="px-4 py-3 font-mono">text-indigo-400 (solid colour — NO gradient text)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Paragraph</td>
+                            <td class="px-4 py-3">Spacing &amp; width</td>
+                            <td class="px-4 py-3 font-mono">mt-6 max-w-2xl</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Paragraph</td>
+                            <td class="px-4 py-3">Typography</td>
+                            <td class="px-4 py-3 font-mono">text-base sm:text-lg text-slate-300</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">CTA row</td>
+                            <td class="px-4 py-3">Layout</td>
+                            <td class="px-4 py-3 font-mono">mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto
+                                items-center</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Primary button</td>
+                            <td class="px-4 py-3">Colors</td>
+                            <td class="px-4 py-3 font-mono">bg-indigo-500 text-white hover:bg-indigo-400</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Primary button</td>
+                            <td class="px-4 py-3">Shape &amp; padding</td>
+                            <td class="px-4 py-3 font-mono">rounded-xl px-7 py-3 text-sm font-semibold</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Secondary button</td>
+                            <td class="px-4 py-3">Colors</td>
+                            <td class="px-4 py-3 font-mono">border border-white/15 bg-white/5 text-slate-100
+                                hover:bg-white/10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Both buttons</td>
+                            <td class="px-4 py-3">Mobile width</td>
+                            <td class="px-4 py-3 font-mono">w-full sm:w-auto</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Both buttons</td>
+                            <td class="px-4 py-3">Focus ring</td>
+                            <td class="px-4 py-3 font-mono">focus-visible:outline-2 focus-visible:outline-offset-2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= 3. NAVBAR ================= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">3 — Navbar</h2>
+            <p class="mt-2 text-sm text-slate-400">Placed <strong class="text-white">after</strong> the hero, sticks to
+                the top on scroll. Element: <code class="font-mono text-indigo-300">&lt;nav&gt;</code> with <code
+                    class="font-mono text-indigo-300">aria-label="Main navigation"</code>.</p>
+
+            <div class="mt-6 overflow-x-auto rounded-xl border border-white/10">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-white/5 text-xs uppercase tracking-wider text-slate-400">
+                        <tr>
+                            <th class="px-4 py-3 w-1/4">Element</th>
+                            <th class="px-4 py-3 w-1/3">Property</th>
+                            <th class="px-4 py-3">Classes / value</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr>
+                            <td class="px-4 py-3">Nav</td>
+                            <td class="px-4 py-3">Position</td>
+                            <td class="px-4 py-3 font-mono">sticky top-0 z-50</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Nav</td>
+                            <td class="px-4 py-3">Background</td>
+                            <td class="px-4 py-3 font-mono">bg-slate-950/80 backdrop-blur-md</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Nav</td>
+                            <td class="px-4 py-3">Border</td>
+                            <td class="px-4 py-3 font-mono">border-b border-white/10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Inner</td>
+                            <td class="px-4 py-3">Width &amp; layout</td>
+                            <td class="px-4 py-3 font-mono">mx-auto max-w-6xl flex items-center justify-between gap-4
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Inner</td>
+                            <td class="px-4 py-3">Padding</td>
+                            <td class="px-4 py-3 font-mono">px-6 py-4</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Brand</td>
+                            <td class="px-4 py-3">Layout &amp; type</td>
+                            <td class="px-4 py-3 font-mono">flex items-center gap-2.5 text-lg font-bold tracking-tight
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Brand logo box</td>
+                            <td class="px-4 py-3">Size &amp; shape</td>
+                            <td class="px-4 py-3 font-mono">h-9 w-9 grid place-items-center rounded-xl bg-indigo-500
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Brand icon</td>
+                            <td class="px-4 py-3">Icon</td>
+                            <td class="px-4 py-3 font-mono">fa-solid fa-cloud text-base text-white</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Links list</td>
+                            <td class="px-4 py-3">Visibility</td>
+                            <td class="px-4 py-3 font-mono">hidden md:flex items-center gap-8</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Links list</td>
+                            <td class="px-4 py-3">Type &amp; colour</td>
+                            <td class="px-4 py-3 font-mono">text-sm font-medium text-slate-300, links hover:text-white
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Sign-in button</td>
+                            <td class="px-4 py-3">Colors</td>
+                            <td class="px-4 py-3 font-mono">bg-white text-slate-900 hover:bg-slate-200</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Sign-in button</td>
+                            <td class="px-4 py-3">Shape &amp; padding</td>
+                            <td class="px-4 py-3 font-mono">rounded-lg px-4 py-2 text-sm font-semibold</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">All links</td>
+                            <td class="px-4 py-3">Transition</td>
+                            <td class="px-4 py-3 font-mono">transition</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="mt-4 rounded-lg border border-amber-400/30 bg-amber-400/10 p-4 text-sm text-amber-100">
+                <i class="fa-solid fa-triangle-exclamation mr-2" aria-hidden="true"></i>
+                <strong>Responsive rule:</strong> below <code class="font-mono">md</code> the four links are hidden with
+                <code class="font-mono">hidden md:flex</code>.
+                A hamburger menu is <em>not</em> required, but the navbar must never overflow horizontally on a 375px
+                screen.
+            </p>
+        </section>
+
+        <!-- ================= 4. CARDS ================= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">4 — Four feature cards</h2>
+            <p class="mt-2 text-sm text-slate-400">Element: <code
+                    class="font-mono text-indigo-300">&lt;section id="features"&gt;</code> containing four <code
+                    class="font-mono text-indigo-300">&lt;article&gt;</code> cards.</p>
+
+            <div class="mt-6 overflow-x-auto rounded-xl border border-white/10">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-white/5 text-xs uppercase tracking-wider text-slate-400">
+                        <tr>
+                            <th class="px-4 py-3 w-1/4">Element</th>
+                            <th class="px-4 py-3 w-1/3">Property</th>
+                            <th class="px-4 py-3">Classes / value</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr>
+                            <td class="px-4 py-3">Section</td>
+                            <td class="px-4 py-3">Width &amp; padding</td>
+                            <td class="px-4 py-3 font-mono">mx-auto max-w-6xl px-6 py-20 sm:py-28</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Heading block</td>
+                            <td class="px-4 py-3">Centering</td>
+                            <td class="px-4 py-3 font-mono">mx-auto max-w-2xl text-center</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">H2</td>
+                            <td class="px-4 py-3">Typography</td>
+                            <td class="px-4 py-3 font-mono">text-3xl sm:text-4xl font-bold tracking-tight</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Intro paragraph</td>
+                            <td class="px-4 py-3">Spacing &amp; colour</td>
+                            <td class="px-4 py-3 font-mono">mt-4 text-slate-400</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Grid</td>
+                            <td class="px-4 py-3">Columns</td>
+                            <td class="px-4 py-3 font-mono">grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Grid</td>
+                            <td class="px-4 py-3">Gap &amp; spacing</td>
+                            <td class="px-4 py-3 font-mono">mt-14 gap-6</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Card</td>
+                            <td class="px-4 py-3">Background</td>
+                            <td class="px-4 py-3 font-mono">bg-white/5 hover:bg-white/10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Card</td>
+                            <td class="px-4 py-3">Border</td>
+                            <td class="px-4 py-3 font-mono">border border-white/10 hover:border-indigo-400/40</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Card</td>
+                            <td class="px-4 py-3">Shape &amp; padding</td>
+                            <td class="px-4 py-3 font-mono">rounded-2xl p-6</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Card</td>
+                            <td class="px-4 py-3">Hover motion</td>
+                            <td class="px-4 py-3 font-mono">transition hover:-translate-y-1</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Icon box</td>
+                            <td class="px-4 py-3">Size &amp; shape</td>
+                            <td class="px-4 py-3 font-mono">h-11 w-11 grid place-items-center rounded-xl</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Icon box</td>
+                            <td class="px-4 py-3">Colour (per card)</td>
+                            <td class="px-4 py-3 font-mono">bg-indigo-500/15 text-indigo-300 · bg-sky-500/15
+                                text-sky-300 · bg-emerald-500/15 text-emerald-300 · bg-fuchsia-500/15 text-fuchsia-300
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Icons (per card)</td>
+                            <td class="px-4 py-3">Font Awesome</td>
+                            <td class="px-4 py-3 font-mono">fa-bolt · fa-cubes · fa-shield-halved · fa-users (all
+                                text-lg)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">H3</td>
+                            <td class="px-4 py-3">Spacing &amp; type</td>
+                            <td class="px-4 py-3 font-mono">mt-5 text-lg font-semibold</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Paragraph</td>
+                            <td class="px-4 py-3">Spacing &amp; type</td>
+                            <td class="px-4 py-3 font-mono">mt-2 text-sm leading-relaxed text-slate-400</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= 5. SPLITTER ================= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">5 — Splitter / divider</h2>
+            <p class="mt-2 text-sm text-slate-400">A thin horizontal rule with a centred label. Element: <code
+                    class="font-mono text-indigo-300">&lt;div role="separator"&gt;</code>.</p>
+
+            <div class="mt-6 overflow-x-auto rounded-xl border border-white/10">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-white/5 text-xs uppercase tracking-wider text-slate-400">
+                        <tr>
+                            <th class="px-4 py-3 w-1/4">Element</th>
+                            <th class="px-4 py-3 w-1/3">Property</th>
+                            <th class="px-4 py-3">Classes / value</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr>
+                            <td class="px-4 py-3">Wrapper</td>
+                            <td class="px-4 py-3">Width &amp; padding</td>
+                            <td class="px-4 py-3 font-mono">mx-auto max-w-6xl px-6</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Inner row</td>
+                            <td class="px-4 py-3">Layout</td>
+                            <td class="px-4 py-3 font-mono">flex items-center gap-5</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Left &amp; right line</td>
+                            <td class="px-4 py-3">Thickness &amp; colour</td>
+                            <td class="px-4 py-3 font-mono">h-px flex-1 bg-white/25 (solid — NO gradient)</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Label</td>
+                            <td class="px-4 py-3">Typography</td>
+                            <td class="px-4 py-3 font-mono">text-xs font-medium uppercase tracking-[0.3em]
+                                text-slate-500</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Label</td>
+                            <td class="px-4 py-3">No wrapping</td>
+                            <td class="px-4 py-3 font-mono">whitespace-nowrap</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Lines</td>
+                            <td class="px-4 py-3">Accessibility</td>
+                            <td class="px-4 py-3 font-mono">aria-hidden="true"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= 6. THREE COLUMNS ================= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">6 — Three text columns</h2>
+            <p class="mt-2 text-sm text-slate-400">Element: <code
+                    class="font-mono text-indigo-300">&lt;section id="about"&gt;</code> with three equal columns, no
+                cards, only a top border.</p>
+
+            <div class="mt-6 overflow-x-auto rounded-xl border border-white/10">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-white/5 text-xs uppercase tracking-wider text-slate-400">
+                        <tr>
+                            <th class="px-4 py-3 w-1/4">Element</th>
+                            <th class="px-4 py-3 w-1/3">Property</th>
+                            <th class="px-4 py-3">Classes / value</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr>
+                            <td class="px-4 py-3">Section</td>
+                            <td class="px-4 py-3">Width &amp; padding</td>
+                            <td class="px-4 py-3 font-mono">mx-auto max-w-6xl px-6 py-20 sm:py-24</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Grid</td>
+                            <td class="px-4 py-3">Columns</td>
+                            <td class="px-4 py-3 font-mono">grid grid-cols-1 md:grid-cols-3</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Grid</td>
+                            <td class="px-4 py-3">Gap</td>
+                            <td class="px-4 py-3 font-mono">gap-10 md:gap-8</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Column</td>
+                            <td class="px-4 py-3">Top border</td>
+                            <td class="px-4 py-3 font-mono">border-t border-white/10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Column</td>
+                            <td class="px-4 py-3">Padding</td>
+                            <td class="px-4 py-3 font-mono">pt-6</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">H3</td>
+                            <td class="px-4 py-3">Typography</td>
+                            <td class="px-4 py-3 font-mono">text-xl font-semibold tracking-tight</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Paragraph</td>
+                            <td class="px-4 py-3">Spacing &amp; type</td>
+                            <td class="px-4 py-3 font-mono">mt-3 text-sm leading-relaxed text-slate-400</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= 7. FOOTER ================= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">7 — Footer</h2>
+            <p class="mt-2 text-sm text-slate-400">Element: <code
+                    class="font-mono text-indigo-300">&lt;footer id="contact"&gt;</code> with a brand block, three link
+                lists and a bottom bar.</p>
+
+            <div class="mt-6 overflow-x-auto rounded-xl border border-white/10">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-white/5 text-xs uppercase tracking-wider text-slate-400">
+                        <tr>
+                            <th class="px-4 py-3 w-1/4">Element</th>
+                            <th class="px-4 py-3 w-1/3">Property</th>
+                            <th class="px-4 py-3">Classes / value</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr>
+                            <td class="px-4 py-3">Footer</td>
+                            <td class="px-4 py-3">Background</td>
+                            <td class="px-4 py-3 font-mono">bg-slate-950</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Footer</td>
+                            <td class="px-4 py-3">Border</td>
+                            <td class="px-4 py-3 font-mono">border-t border-white/10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Inner</td>
+                            <td class="px-4 py-3">Width &amp; padding</td>
+                            <td class="px-4 py-3 font-mono">mx-auto max-w-6xl px-6 py-14</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Top grid</td>
+                            <td class="px-4 py-3">Columns</td>
+                            <td class="px-4 py-3 font-mono">grid grid-cols-2 sm:grid-cols-4 gap-10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Brand block</td>
+                            <td class="px-4 py-3">Span</td>
+                            <td class="px-4 py-3 font-mono">col-span-2 sm:col-span-1</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Brand logo</td>
+                            <td class="px-4 py-3">Same as navbar</td>
+                            <td class="px-4 py-3 font-mono">h-9 w-9 rounded-xl bg-indigo-500 + fa-solid fa-cloud</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Brand text</td>
+                            <td class="px-4 py-3">Spacing &amp; type</td>
+                            <td class="px-4 py-3 font-mono">mt-4 max-w-xs text-sm leading-relaxed text-slate-400</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Column titles</td>
+                            <td class="px-4 py-3">Typography</td>
+                            <td class="px-4 py-3 font-mono">text-sm font-semibold text-white</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Link lists</td>
+                            <td class="px-4 py-3">Spacing &amp; type</td>
+                            <td class="px-4 py-3 font-mono">mt-4 space-y-3 text-sm text-slate-400</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Links</td>
+                            <td class="px-4 py-3">Hover</td>
+                            <td class="px-4 py-3 font-mono">transition hover:text-white</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Bottom bar</td>
+                            <td class="px-4 py-3">Layout</td>
+                            <td class="px-4 py-3 font-mono">mt-12 flex flex-col sm:flex-row items-center justify-between
+                                gap-4</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Bottom bar</td>
+                            <td class="px-4 py-3">Border &amp; padding</td>
+                            <td class="px-4 py-3 font-mono">border-t border-white/10 pt-8</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Bottom text</td>
+                            <td class="px-4 py-3">Typography</td>
+                            <td class="px-4 py-3 font-mono">text-xs text-slate-500</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Copyright</td>
+                            <td class="px-4 py-3">Symbol</td>
+                            <td class="px-4 py-3 font-mono">&amp;copy; + year span</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= 8. ICONS ================= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">8 — Icon reference (Font Awesome only)</h2>
+            <p class="mt-2 text-sm text-slate-400">Use exactly these classes. Every decorative icon needs <code
+                    class="font-mono text-indigo-300">aria-hidden="true"</code>.</p>
+
+            <div class="mt-6 overflow-x-auto rounded-xl border border-white/10">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-white/5 text-xs uppercase tracking-wider text-slate-400">
+                        <tr>
+                            <th class="px-4 py-3">Location</th>
+                            <th class="px-4 py-3">Class</th>
+                            <th class="px-4 py-3">Size</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr>
+                            <td class="px-4 py-3">Hero badge dot</td>
+                            <td class="px-4 py-3 font-mono">fa-solid fa-circle</td>
+                            <td class="px-4 py-3 font-mono">text-[6px]</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Brand (navbar + footer)</td>
+                            <td class="px-4 py-3 font-mono">fa-solid fa-cloud</td>
+                            <td class="px-4 py-3 font-mono">text-base</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Card 1</td>
+                            <td class="px-4 py-3 font-mono">fa-solid fa-bolt</td>
+                            <td class="px-4 py-3 font-mono">text-lg</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Card 2</td>
+                            <td class="px-4 py-3 font-mono">fa-solid fa-cubes</td>
+                            <td class="px-4 py-3 font-mono">text-lg</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Card 3</td>
+                            <td class="px-4 py-3 font-mono">fa-solid fa-shield-halved</td>
+                            <td class="px-4 py-3 font-mono">text-lg</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3">Card 4</td>
+                            <td class="px-4 py-3 font-mono">fa-solid fa-users</td>
+                            <td class="px-4 py-3 font-mono">text-lg</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= 9. ACCESSIBILITY ================= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">9 — Accessibility checklist</h2>
+            <ul class="mt-6 space-y-3 rounded-xl border border-white/10 bg-white/5 p-6 text-sm text-slate-300">
+                <li class="flex gap-3"><i class="fa-solid fa-square-check mt-0.5 text-emerald-400"
+                        aria-hidden="true"></i>Page language set: <code class="font-mono">&lt;html lang="en"&gt;</code>.
+                </li>
+                <li class="flex gap-3"><i class="fa-solid fa-square-check mt-0.5 text-emerald-400"
+                        aria-hidden="true"></i>Exactly one <code class="font-mono">&lt;h1&gt;</code> — the hero
+                    headline. Section titles use <code class="font-mono">&lt;h2&gt;</code>, cards use <code
+                        class="font-mono">&lt;h3&gt;</code>.</li>
+                <li class="flex gap-3"><i class="fa-solid fa-square-check mt-0.5 text-emerald-400"
+                        aria-hidden="true"></i>Navbar has <code class="font-mono">aria-label="Main navigation"</code>;
+                    nav links are inside a <code class="font-mono">&lt;ul&gt;</code>.</li>
+                <li class="flex gap-3"><i class="fa-solid fa-square-check mt-0.5 text-emerald-400"
+                        aria-hidden="true"></i>Splitter wrapper has <code class="font-mono">role="separator"</code> and
+                    its lines have <code class="font-mono">aria-hidden="true"</code>.</li>
+                <li class="flex gap-3"><i class="fa-solid fa-square-check mt-0.5 text-emerald-400"
+                        aria-hidden="true"></i>All decorative icons have <code
+                        class="font-mono">aria-hidden="true"</code> and carry no text alternative.</li>
+                <li class="flex gap-3"><i class="fa-solid fa-square-check mt-0.5 text-emerald-400"
+                        aria-hidden="true"></i>All buttons and links show a visible <code
+                        class="font-mono">focus-visible</code> outline of 2px with offset 2.</li>
+                <li class="flex gap-3"><i class="fa-solid fa-square-check mt-0.5 text-emerald-400"
+                        aria-hidden="true"></i>Every <code class="font-mono">&lt;a&gt;</code> has meaningful text — no
+                    “click here”, no empty links.</li>
+            </ul>
+        </section>
+
+        <!-- ================= 10. ACCEPTANCE ================= -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold tracking-tight">10 — Acceptance checklist (mark yourself)</h2>
+
+            <div class="mt-6 overflow-x-auto rounded-xl border border-white/10">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-white/5 text-xs uppercase tracking-wider text-slate-400">
+                        <tr>
+                            <th class="px-4 py-3">#</th>
+                            <th class="px-4 py-3">Requirement</th>
+                            <th class="px-4 py-3">Points</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-slate-500">01</td>
+                            <td class="px-4 py-3">All six sections exist in the correct order (hero → navbar → 4 cards →
+                                splitter → 3 columns → footer).</td>
+                            <td class="px-4 py-3 font-mono">10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-slate-500">02</td>
+                            <td class="px-4 py-3">Hero matches every spec value (padding, min-height, type scale, two
+                                buttons).</td>
+                            <td class="px-4 py-3 font-mono">10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-slate-500">03</td>
+                            <td class="px-4 py-3">Navbar is sticky, blurred, bordered, and links hide below <code
+                                    class="font-mono">md</code>.</td>
+                            <td class="px-4 py-3 font-mono">10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-slate-500">04</td>
+                            <td class="px-4 py-3">Card grid is 1 / 2 / 4 columns at base / sm / lg, with hover lift and
+                                border-colour change.</td>
+                            <td class="px-4 py-3 font-mono">10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-slate-500">05</td>
+                            <td class="px-4 py-3">Splitter uses two solid <code
+                                    class="font-mono">h-px bg-white/25</code> lines and a centred uppercase label.</td>
+                            <td class="px-4 py-3 font-mono">10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-slate-500">06</td>
+                            <td class="px-4 py-3">Three columns go 1 → 3 at <code class="font-mono">md</code>, each with
+                                a top border and matching typography.</td>
+                            <td class="px-4 py-3 font-mono">10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-slate-500">07</td>
+                            <td class="px-4 py-3">Footer has 4 grid columns at <code class="font-mono">sm</code>, 2
+                                below, plus a bottom bar.</td>
+                            <td class="px-4 py-3 font-mono">10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-slate-500">08</td>
+                            <td class="px-4 py-3">All icons come from Font Awesome 6.5 and match the icon reference
+                                table.</td>
+                            <td class="px-4 py-3 font-mono">10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-slate-500">09</td>
+                            <td class="px-4 py-3">Zero gradients, zero inline SVG, zero custom CSS, zero JS (except
+                                optional year).</td>
+                            <td class="px-4 py-3 font-mono">10</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-slate-500">10</td>
+                            <td class="px-4 py-3">No horizontal scrolling at 375px, 768px or 1280px; accessibility
+                                checklist fully met.</td>
+                            <td class="px-4 py-3 font-mono">10</td>
+                        </tr>
+                        <tr class="bg-white/5">
+                            <td class="px-4 py-3 font-mono text-slate-400">—</td>
+                            <td class="px-4 py-3 font-semibold text-white">Total</td>
+                            <td class="px-4 py-3 font-mono font-semibold text-white">100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= 11. SUBMISSION ================= -->
+        <section>
+            <h2 class="text-2xl font-bold tracking-tight">11 — Submission</h2>
+            <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+                    <i class="fa-solid fa-file-code text-xl text-indigo-400" aria-hidden="true"></i>
+                    <h3 class="mt-3 text-sm font-semibold text-white">Deliverable</h3>
+                    <p class="mt-1 text-sm text-slate-400">One file: <code class="font-mono">index.html</code>, valid
+                        HTML5.</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+                    <i class="fa-solid fa-code text-xl text-indigo-400" aria-hidden="true"></i>
+                    <h3 class="mt-3 text-sm font-semibold text-white">Formatting</h3>
+                    <p class="mt-1 text-sm text-slate-400">2-space indentation, one section per comment block.</p>
+                </div>
+                <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+                    <i class="fa-solid fa-list-check text-xl text-indigo-400" aria-hidden="true"></i>
+                    <h3 class="mt-3 text-sm font-semibold text-white">With submission</h3>
+                    <p class="mt-1 text-sm text-slate-400">Screenshots at 375px, 768px and 1280px plus your scored
+                        checklist.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-white/10">
+        <div class="mx-auto max-w-5xl px-6 py-8">
+            <p class="text-xs text-slate-500">Build Spec — Nimbus Landing Page · Tailwind CSS v4 teaching material.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

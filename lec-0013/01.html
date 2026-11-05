@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        .parent {
+            margin: 50px auto;
+            width: 400px;
+            aspect-ratio: 1;
+            background-color: lightpink;
+            position: relative;
+            overflow: hidden;
+
+            .child {
+
+                width: 200px;
+                aspect-ratio: 1;
+                border-radius: 50%;
+
+                position: absolute;
+
+                &.a {
+                    background-color: lightskyblue;
+                    left: -50px;
+                    top: -50px;
+                }
+                
+                &.b {
+                    background-color: lightseagreen;
+                    right: -50px;
+                    bottom: -50px;
+                }
+
+            }
+        }
+    </style>
+
+    <div class="parent">
+        <div class="child a"></div>
+        <div class="child b"></div>
+    </div>
+
+</body>
+
+</html>

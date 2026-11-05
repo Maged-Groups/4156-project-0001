@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailwindCSS</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .parent {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            padding: 8px;
+
+            .card {
+                max-width: 300px;
+                border: solid 1px;
+                border-radius: 8px;
+                box-shadow: 2px 2px 3px;
+                overflow: hidden;
+
+                h2 {
+                    padding: 8px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    background-color: #228822;
+                    color: white;
+                }
+
+                .text,
+                .btns {
+                    padding: 8px;
+                }
+
+                .btns {
+                    display: flex;
+                    justify-content: flex-end;
+                    gap: 8px;
+
+                    button {
+                        border: none;
+                        padding: 4px 8px;
+                        border-radius: 8px;
+                        color: white;
+
+                        &:first-child {
+                            background-color: #222288;
+                        }
+
+                        &:last-child {
+                            background-color: #228822;
+                        }
+                    }
+                }
+            }
+        }
+    </style>
+
+    <div class="parent">
+        <div class="card">
+            <h2>Card Title</h2>
+            <div>
+                <img src="" alt="">
+            </div>
+
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, deleniti?</p>
+            </div>
+
+            <div class="btns">
+                <button>Details</button>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Card Title</h2>
+            <div>
+                <img src="" alt="">
+            </div>
+
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, deleniti?</p>
+            </div>
+
+            <div class="btns">
+                <button>Details</button>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Card Title</h2>
+            <div>
+                <img src="" alt="">
+            </div>
+
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, deleniti?</p>
+            </div>
+
+            <div class="btns">
+                <button>Details</button>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
