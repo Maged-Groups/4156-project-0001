@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" data-theme="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailwindCSS 4</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/e747016902.js" crossorigin="anonymous"></script>
+
+    <style type="text/tailwindcss">
+
+        @custom-variant dark (&:where(.dark, .dark *));
+        @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+
+
+        @theme {
+            --color-primary: #fc9484;
+            --color-secondary: #641f15;
+            --color-notification: #76d4ff;
+            --color-text: #333;
+        }
+        
+        
+        .dark, [data-theme=dark] {
+            --color-primary: #641f15;
+            --color-secondary: #fc9484;
+            --color-notification: #042a3b;
+            --color-text: #ddd;
+        }
+        
+
+
+        /* img{
+            width: 300px;
+        }
+
+        .a{
+            box-shadow: 5px 5px 5px;
+        }
+
+        .b{
+            filter: drop-shadow(5px 5px 5px);
+        } */
+    </style>
+</head>
+
+<body class="bg-gray-300 dark:bg-gray-800">
+
+    <!-- Settings bar -->
+    <div class="p-4">
+        <!-- Theme switcher -->
+        <div class="rounded-full border w-20 p-1 bg-gray-200 flex justify-between items-center">
+            <span class=" rounded-full w-8 h-8 flex items-center justify-center">
+                <i class="fa fa-sun"></i>
+            </span>
+            <span class="bg-gray-600 text-yellow-400 rounded-full w-8 h-8 flex items-center justify-center">
+                <i class="fa fa-moon"></i>
+            </span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-primary text-secondary h-screen text-4xl flex justify-center items-center">
+        <h1>My Portfolio</h1>
+    </header>
+
+    <!-- Top Navbar -->
+    <nav class="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300">
+        <a href="">Link</a>
+        <a href="">Link</a>
+        <a href="">Link</a>
+        <a href="">Link</a>
+        <a href="">Link</a>
+    </nav>
+
+    <!-- Notification Area -->
+    <div class="p-4 border bg-notification text-text">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel, quam!
+    </div>
+
+    <img class="w-20 shadow-lg" src="logo.png" alt="">
+
+    <img class="w-20 drop-shadow-lg" src="logo.png" alt="">
+
+    <!-- Page Content -->
+    <div class="container">
+        <!-- main content -->
+        <main>
+
+            <!-- Newsletter -->
+            <section class="bg-gray-50">
+                <div class="p-8 md:p-12 lg:px-16 lg:py-24">
+                    <div class="mx-auto max-w-lg text-center">
+                        <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit
+                        </h2>
+
+                        <p class="hidden text-gray-500 sm:mt-4 sm:block">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae dolor officia blanditiis
+                            repellat in, vero, aperiam porro ipsum laboriosam consequuntur exercitationem incidunt
+                            tempora nisi?
+                        </p>
+                    </div>
+
+                    <div class="mx-auto mt-8 max-w-xl">
+                        <form action="#" class="sm:flex sm:gap-4">
+                            <div class="sm:flex-1">
+                                <label for="email" class="sr-only">Email</label>
+
+                                <input type="email" placeholder="Email address"
+                                    class="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-xs transition focus:border-white focus:ring-2 focus:ring-yellow-400 focus:outline-hidden" />
+                            </div>
+
+                            <button type="submit"
+                                class="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-rose-600 px-5 py-3 text-white transition focus:ring-2 focus:ring-yellow-400 focus:outline-hidden sm:mt-0 sm:w-auto">
+                                <span class="text-sm font-medium"> Sign Up </span>
+
+                                <svg aria-hidden="true" class="size-5 shadow-sm rtl:rotate-180"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+
+        </main>
+
+        <!-- Ads Area -->
+        <aside></aside>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer></footer>
+
+
+</body>
+
+</html>

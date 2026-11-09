@@ -8,42 +8,43 @@
     <meta name="description" content="Nimbus is a fictional product landing page built with Tailwind CSS v4." />
 
     <!-- Tailwind CSS v4 (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- Font Awesome 6.5 (CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body class="bg-slate-900 flex flex-col h-screen">
 
     <!-- ============================================================
        1. HERO SECTION
-       Needs: full-width block, solid bg-slate-950, bottom border,
+       Needs: full-width block, solid , bottom border,
        min-h-[70vh], centred column, badge, H1 with coloured span,
        paragraph, and two side-by-side buttons.
   ============================================================= -->
-    <section id="hero">
-        <div>
+    <section class="min-h-[70vh] bg-slate-950 border-b text-white flex justify-center" id="hero">
+        <div class="max-w-4xl p-8 h-full flex justify-center items-center flex-col gap-8">
 
-            <span>
+            <span class="rounded-full border border-indigo-500 px-4 py-2 inline-flex items-center gap-4 text-xs text-indigo-300 uppercase">
                 <i class="fa-solid fa-circle" aria-hidden="true"></i>
                 Version 4.3 is live
             </span>
 
-            <h1>
+            <h1 class="text-7xl font-bold text-center">
                 Ship beautiful interfaces
-                <span>in record time</span>
+                <span class="text-indigo-500">in record time</span>
             </h1>
 
-            <p>
+            <p class="text-center">
                 Nimbus gives your team a design system, a component library and a build
                 pipeline that simply works — so you can spend your time on the product,
                 not on the plumbing.
             </p>
 
-            <div>
-                <a href="#features">Get started free</a>
-                <a href="#about">Read the docs</a>
+            <div class="flex gap-8">
+                <a class='rounded-xl text-white px-6 py-3 bg-indigo-500' href="#features">Get started free</a>
+                <a class='rounded-xl text-white px-6 py-3 bg-gray-900 border' href="#about">Read the docs</a>
             </div>
 
         </div>
